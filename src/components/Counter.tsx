@@ -12,23 +12,34 @@ export function Counter() {
   // inside useState(we set the desired starting point). the setCounter is a method we will call in step 3.
   const [counter, setCounter] = useState(0)
 
-  function handleClickCounter(event: React.MouseEvent) {
-    // This is the function we want to run every time the button get clicked!
-    event.preventDefault()
+  // Version 1: function handleClickCounter(event: React.MouseEvent) {
+  //   // This is the function we want to run every time the button get clicked!
+  //   event.preventDefault()
 
-    console.log('CLICKED!')
+  //   console.log('CLICKED!')
 
-    // Increments the counter
-    const newCounter = counter + 1
+  //   // Increments the counter
+  //   const newCounter = counter + 1
 
-    // Tell React there is a new value for the count
-    setCounter(newCounter)
-  }
+  //   // Tell React there is a new value for the count
+  //   setCounter(newCounter)
+  // }
+
+  // Version 2: Re-do handleClickCounter() to be less lines of code.
+  // function handleClickCounter(event: React.MouseEvent) {
+  //   event.preventDefault()
+
+  //   setCounter(counter + 1)
+  // }
+
+  // Version 3: is the INLINE arrow function written inside the <button onClick={...} </button>
+  // See below.
 
   return (
     <div>
       <p>The count is {counter}</p>
-      <button onClick={handleClickCounter}>Increment</button>
+
+      <button onClick={() => setCounter(counter + 1)}>Increment</button>
     </div>
   )
 }
