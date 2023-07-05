@@ -38,9 +38,9 @@ export function Counter() {
   // track a second event
   const [name, setName] = useState('')
   // Second function to track another state, a name in input box.
-  function handleChangeInput(event: React.ChangeEvent<HTMLInputElement>) {
-    setName(event.target.value)
-  }
+  // function handleChangeInput(event: React.ChangeEvent<HTMLInputElement>) {
+  //   setName(event.target.value)
+  // }
 
   return (
     <div>
@@ -49,7 +49,7 @@ export function Counter() {
       <button onClick={() => setCounter(counter + 1)}>Increment</button>
 
       <p>
-        <input value={name} onChange={handleChangeInput} />
+        <input value={name} onChange={(event) => setName(event.target.value)} />
       </p>
       <p>{name}</p>
     </div>
