@@ -2,17 +2,27 @@ import React, { useState } from 'react'
 
 export function Counter() {
   // This will introduce useState
-  const valueAndSetMethod /* <- array */ = useState(
-    0 /* initial state value desired */
-  )
+  // const valueAndSetMethod /* <- array */ = useState(
+  //   0 /* initial state value desired */
+  // )
 
-  const counter = valueAndSetMethod[0]
-  const setCounter = valueAndSetMethod[1]
+  // const counter = valueAndSetMethod[0]
+  // const setCounter = valueAndSetMethod[1]
+
+  // inside useState(we set the desired starting point). the setCounter is a method we will call in step 3.
+  const [counter, setCounter] = useState(0)
+
+  function handleClickCounter(event: React.MouseEvent) {
+    // This is the function we want to run every time the button get clicked!
+    event?.preventDefault()
+
+    console.log('CLICKED!')
+  }
 
   return (
     <div>
       <p>The count is {counter}</p>
-      <button>Increment</button>
+      <button onClick={handleClickCounter}>Increment</button>
     </div>
   )
 }
