@@ -33,13 +33,25 @@ export function Counter() {
   // }
 
   // Version 3: is the INLINE arrow function written inside the <button onClick={...} </button>
-  // See below.
+  // See onClick button bellow.
+
+  // track a second event
+  const [name, setName] = useState('')
+  // Second function to track another state, a name in input box.
+  function handleChangeInput(event: React.ChangeEvent<HTMLInputElement>) {
+    setName(event.target.value)
+  }
 
   return (
     <div>
       <p>The count is {counter}</p>
 
       <button onClick={() => setCounter(counter + 1)}>Increment</button>
+
+      <p>
+        <input value={name} onChange={handleChangeInput} />
+      </p>
+      <p>{name}</p>
     </div>
   )
 }
