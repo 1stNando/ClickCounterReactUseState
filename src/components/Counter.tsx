@@ -14,9 +14,15 @@ export function Counter() {
 
   function handleClickCounter(event: React.MouseEvent) {
     // This is the function we want to run every time the button get clicked!
-    event?.preventDefault()
+    event.preventDefault()
 
     console.log('CLICKED!')
+
+    // Increments the counter
+    const newCounter = counter + 1
+
+    // Tell React there is a new value for the count
+    setCounter(newCounter)
   }
 
   return (
